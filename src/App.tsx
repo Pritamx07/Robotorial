@@ -9,6 +9,7 @@ import IoTBasedProject from "./components/home/IoTBasedPorject";
 import BannerCarousel from "./components/home/BannerCarousel";
 import TeamTestimonials from "./components/home/TeamTestimonials";
 import OurGallery from "./components/home/OurGallery"; 
+import StatsSection from "./components/home/StatsSection";
 
 function App() {
 	// Change the page title
@@ -21,6 +22,7 @@ function App() {
 			<Navbar />
 			<main>
 				<Hero />
+				<StatsSection />
 				<BannerCarousel />   
 				<OurGallery />       
 				<Projects />
