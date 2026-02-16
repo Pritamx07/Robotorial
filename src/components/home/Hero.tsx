@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
 			<div className=" absolute z-0">
 				{/* For small screens */}
 				<video autoPlay loop muted className="block md:hidden">
-					<source src="https://res.cloudinary.com/dncj7tesy/video/upload/q_auto:low/v1745333648/pc65jbshkezy53vi2pz6.mp4" />
+					<source src="https://res.cloudinary.com/dncj7tesy/video/upload/q_auto:low/h_1000,w_2000/v1745923301/heroVideo_gkbyfn.mp4" />
 				</video>
 				{/* For md and up */}
 
