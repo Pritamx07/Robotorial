@@ -94,7 +94,7 @@ const BannerCarousel: React.FC = () => {
 					<div className="flex items-center justify-center gap-3 mb-2">
 						<Calendar className="w-8 h-8 text-[rgb(var(--primary))]" />
 						<h2 className="text-3xl font-bold bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--secondary))] bg-clip-text text-transparent">
-							Upcoming Events
+							Completed Events
 						</h2>
 					</div>
 					<div className="w-full flex items-center justify-center gap-3 mb-2">
