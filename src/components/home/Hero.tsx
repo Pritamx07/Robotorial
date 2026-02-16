@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
                     className="absolute w-full h-full object-cover block md:hidden"
                     poster="https://res.cloudinary.com/dncj7tesy/image/upload/v1745333648/pc65jbshkezy53vi2pz6.jpg"
                 >
-                    <source src="https://res.cloudinary.com/dncj7tesy/video/upload/q_auto:low/h_1000,w_2000/v1745923301/heroVideo_gkbyfn.mp4#t=0.001" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dcxadfbih/video/upload/v1771250084/heroVideo_gkbyfn_uxgod0.mp4" type="video/mp4" />
                 </video>
 
                 {/* Desktop Video */}
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
                     playsInline
                     className="absolute w-full h-full object-cover hidden md:block"
                 >
-                    <source src="https://res.cloudinary.com/dncj7tesy/video/upload/q_auto:low/h_1000,w_2000/v1745923301/heroVideo_gkbyfn.mp4#t=0.001" type="video/mp4" />
+                    <source src="https://res.cloudinary.com/dcxadfbih/video/upload/v1771250084/heroVideo_gkbyfn_uxgod0.mp4" type="video/mp4" />
                 </video>
 
                 {/* Lightened Overlay: Changed from bg-gray-900/60 to bg-black/30 for clarity */}
