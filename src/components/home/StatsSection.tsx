@@ -1,20 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, CSSProperties } from "react";
 
-// --- Counter Component ---
-const Counter = ({ target, label, isVisitorCounter }) => {
-  const [count, setCount] = useState(0);
+// 1. Define an interface for the Counter props
+interface CounterProps {
+  target: number;
+  label: string;
+  isVisitorCounter?: boolean; // The '?' makes it optional
+}
+
+const Counter: React.FC<CounterProps> = ({ target, label, isVisitorCounter = false }) => {
+  const [count, setCount] = useState<number>(0);
 
   useEffect(() => {
     if (!target || target === 0) return;
 
-    // If it's the visitor counter, we want it to feel "live" 
-    // instead of counting from 0 to 1000+ every time.
     if (isVisitorCounter) {
-      setCount(target); 
+      setCount(target);
       return;
     }
 
-    // Standard animation for smaller numbers (Teachers, Students)
     let start = 0;
     const duration = 2000;
     const increment = target / (duration / 16);
@@ -40,17 +43,15 @@ const Counter = ({ target, label, isVisitorCounter }) => {
   );
 };
 
-// --- Main Stats Section ---
 export default function StatsSection() {
-  const [visitors, setVisitors] = useState(0);
-  const isFetched = React.useRef(false); // Ref to track if we've already hit the API
+  const [visitors, setVisitors] = useState<number>(0);
+  const isFetched = useRef<boolean>(false);
 
   useEffect(() => {
-    // If we've already fetched in this session, don't do it again
     if (isFetched.current) return;
-    
     isFetched.current = true;
 
+    // Stable API for Robotorial visitors
     const apiURL = "https://api.counterapi.dev/v1/robotorial_official/visits/up";
 
     fetch(apiURL)
@@ -69,13 +70,15 @@ export default function StatsSection() {
   return (
     <section style={styles.section}>
       <Counter target={visitors} label="Website Visitors" isVisitorCounter={true} />
-      <Counter target={16} label="Students Enrolled" />
-      <Counter target={7} label="Teachers" />
+      {/* Added isVisitorCounter={false} explicitly to satisfy the 'required' error if you prefer */}
+      <Counter target={16} label="Students Enrolled" isVisitorCounter={false} />
+      <Counter target={7} label="Teachers" isVisitorCounter={false} />
     </section>
   );
 }
 
-const styles = {
+// 2. Use CSSProperties to fix the style assignment errors
+const styles: { [key: string]: CSSProperties } = {
   section: {
     display: "flex",
     justifyContent: "center",
@@ -83,10 +86,12 @@ const styles = {
     padding: "80px 20px",
     background: "#0b1120",
     textAlign: "center",
-    flexWrap: "wrap",
+    flexWrap: "wrap" as "wrap", // Fixed the 'flexWrap' type error
     fontFamily: "sans-serif",
   },
-  card: { minWidth: "200px" },
+  card: {
+    minWidth: "200px",
+  },
   number: {
     fontSize: "48px",
     color: "#3b82f6",
